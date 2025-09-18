@@ -10,6 +10,9 @@ def my_word():
     if len(sys.argv) < 2:
         print("Error: missing argument (please provide a word list file)")
         sys.exit(1)
+    if len(sys.argv) != 2:
+        print("Usage: python3 hangman.py <wordlist.txt>")
+        sys.exit(1)
 
     script = sys.argv[1]
 
@@ -64,18 +67,23 @@ def game():
 
     penalty = 0
     max_penalty = 12
-    attempts = 0   # compteur de tentatives
+    attempts = 0
 
     print("You must guess the word:", " ".join(hidden_word))
 
+
     # Boucle principale
     while penalty <= max_penalty:
-        input_chosen_word = input("Enter a letter or a word: ").lower()
-        attempts += 1  # chaque entrée est une tentative
+        input_chosen_word = input("Enter a letter or a word: ").strip().lower()
+        attempts += 1
 
         if not input_chosen_word.isalpha():
             print(" Just enter letters.")
             continue
+    # Mot trop long
+        if len(input_chosen_word) > len(chosen_word) and len(input_chosen_word) > 1:
+        	print("Input too long! try again")
+	        continue
 
         # Cas mot complet
         if len(input_chosen_word) > 1:
@@ -96,6 +104,9 @@ def game():
                         hidden_word[i] = input_chosen_word
             else:
                 penalty += 1
+		#if penalty < 1:
+		#print(f" Wrong letter! Penalty: {penalty}/{max_penalty}")
+		#else:
                 print(f" Wrong letter! Penalties: {penalty}/{max_penalty}")
 
         # Afficher l'état actuel du mot
