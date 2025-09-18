@@ -1,0 +1,7 @@
+python
+words
+school
+epitech
+github
+project
+work
