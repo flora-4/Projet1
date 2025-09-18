@@ -1,0 +1,87 @@
+AU LANCEMENT DU JEUpython3 hangman.py script.py
+python3 hangman.py            # sans fichier
+python3 hangman.py word.txt extra.txt   # trop d’arguments
+python3 hangman.py unknow.txt  # fichier qui n’existe pas
+python3 hangman.py words.txt   # mais un fichier vide
+python3 hangman.py script.py   # donner un fichier qui n’est pas une liste de mots
+
+
+PENDANT LE JEU
+
+Entrer 12345
+
+Entrer !@#$%
+
+Entrer une lettre majuscule (ex: P)
+
+Entrer une chaîne vide (juste taper entrée)
+
+Entrer une très longue chaîne (aaaaaaaaaaaaaaaaaaaaaaa)
+
+Entrer des espaces " "
+
+Répéter toujours la même lettre
+
+
+
+
+
+
+LES RESULTATS
+
+python3 hangman.py
+Error: missing argument (please provide a word list file)
+
+python3 hangman.py word.txt extra.txt
+The game still runs, though.
+
+python3 hangman.py unknow.txt
+Error: file 'unknow.txt' not found
+
+python3 hanfman.py words.txt
+Error: no valid words in the file
+
+python3 hangman.py script.py
+Error: no valid words in the file
+
+
+Entrer 12345
+ Just enter letters.
+
+Enter !@#$%
+Just enter letters.
+
+Entrer une lettre majuscule
+Enter a letter or a word: C
+ Letter 'c' found!
+s c _ _ _ _
+
+
+Entrer une très longue chaîne
+Enter a letter or a word: oooooooooooooooooooooooooooooooooooooooooooooo
+ Wrong word! Penalties: 8/12
+s c _ _ _ _
+
+Entrer des espaces
+Enter a letter or a word:
+ Just enter letters.
+
+
+Répéter toujours la même lettre
+Enter a letter or a word: a
+ Wrong letter! Penalties: 9/12
+s c _ _ _ _
+Enter a letter or a word: a
+ Wrong letter! Penalties: 10/12
+s c _ _ _ _
+Enter a letter or a word: a
+ Wrong letter! Penalties: 11/12
+s c _ _ _ _
+Enter a letter or a word: a
+ Wrong letter! Penalties: 12/12
+s c _ _ _ _
+Enter a letter or a word: a
+ Wrong letter! Penalties: 13/12
+s c _ _ _ _
+Game over! Too many penalties. The word was 'school'.
+Do you want to play again? (y/n):
