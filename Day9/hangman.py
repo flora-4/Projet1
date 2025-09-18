@@ -56,10 +56,10 @@ def save_best_score(word, attempts):
 def end_game(word, attempts):
     best = get_best_score()
     if best is None or attempts < best:
-        save_best_score(word, attempts)
-        print(f"Best ever!!! You've guessed \"{word}\" in {attempts} attempts.")
+                        save_best_score(word, attempts)
+                        print(f"Best ever!!! You've guessed \"{word}\" in {attempts} attempts.")
     else:
-        print(f"You've guessed \"{word}\" in {attempts} attempts. The record is {best} attempts.")
+          print(f"You've guessed \"{word}\" in {attempts} attempts. The record is {best} attempts.")
 
 def game():
     chosen_word = my_word()
@@ -82,37 +82,43 @@ def game():
             continue
     # Mot trop long
         if len(input_chosen_word) > len(chosen_word) and len(input_chosen_word) > 1:
-        	print("Input too long! try again")
-	        continue
-
-        # Cas mot complet
+                print("Input too long! try again")
+                continue
+                    # Cas mot complet
         if len(input_chosen_word) > 1:
             if input_chosen_word == chosen_word:
-                print(f"Congratulations, you found it: {chosen_word}")
+                print(f"{chosen_word} : correct guess - {penalty} penalties")
                 end_game(chosen_word, attempts)
                 return
             else:
                 penalty += 5
-                print(f" Wrong word! Penalties: {penalty}/{max_penalty}")
+                print(f"{input_chosen_word}: incorrect guess")
+
+                print(f"{" ".join(hidden_word)} /{penalty} penalties")
 
         # Cas lettre
         else:
             if input_chosen_word in chosen_word:
-                print(f" Letter '{input_chosen_word}' found!")
+                #print(f" found one '{input_chosen_word}'")
                 for i, letter in enumerate(chosen_word):
                     if letter == input_chosen_word:
                         hidden_word[i] = input_chosen_word
+                        print(f"found one '{input_chosen_word}'")
+                        if penalty <= 1:
+                            print(f"{" ".join(hidden_word)} /{penalty} penalty")
+                        else:
+                            print(f"{" ".join(hidden_word)} /{penalty} penalties")
             else:
                 penalty += 1
-		#if penalty < 1:
-		#print(f" Wrong letter! Penalty: {penalty}/{max_penalty}")
-		#else:
-                print(f" Wrong letter! Penalties: {penalty}/{max_penalty}")
+
+                print(f" No '{input_chosen_word}' found")
 
         # Afficher l'état actuel du mot
-        print(" ".join(hidden_word))
-
-        # Vérifier si le mot est complètement trouvé
+                if penalty <= 1:
+                    print(f"{" ".join(hidden_word)} /{penalty} penalty")
+                else:
+                    print(f"{" ".join(hidden_word)} /{penalty} penalties")
+                        # Vérifier si le mot est complètement trouvé
         if "".join(hidden_word) == chosen_word:
             print(f"You win! The word was '{chosen_word}'.")
             end_game(chosen_word, attempts)
