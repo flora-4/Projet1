@@ -1,0 +1,18 @@
+Etapes avant de commencer à coder:
+
+-lire et comprendre le probleme posé dans l'exercice
+-Ecrire les etapes à realiser pour resoudre le probleme donné
+-commenter ses lignes de code pour mieux se reperer
+
+Lors du processus de codage
+
+-preter attention aux details tels que:
+. l'indentation apres chaque structure de controle
+. les 2 points apres chaque condition dans une structure de controle
+. gerer les majuscules et petits bugs en fonction de l'exercice 
+. relire le code pour verifier qu'il repond aux attentes de l'exercice
+. Opter pour l'usage de plusieurs fonctions pour eviter de reecrire le code à chaque fois et juste appeller la fonction lorsqu'on en a besion
+
+Concernant la securité:
+Apprendre et utiliser constamment le terminal pour manipuler des commandes linux
+
