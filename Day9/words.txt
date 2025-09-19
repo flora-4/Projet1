@@ -1,0 +1,8 @@
+apple
+banana
+computer
+school
+python
+keyboard
+morning
+developer
